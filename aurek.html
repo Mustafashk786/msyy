@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poetry for Fatima 🌸</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #ffebf0, #ffccf9, #e1bee7);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #880e4f;
+      text-align: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+      position: relative;
+      animation: colorChange 5s infinite alternate;
+      background-image: url('https://www.transparenttextures.com/patterns/rainbow-hues.png');
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      color: #ec407a;
+      text-shadow: 0 0 20px rgba(236, 64, 122, 0.8);
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .sher {
+      font-size: 1.8em;
+      margin: 30px auto;
+      font-style: italic;
+      max-width: 700px;
+      line-height: 1.8;
+      text-align: center;
+      color: #c2185b;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 2s ease-in-out;
+      transition: transform 0.3s ease-in-out, color 2s ease-in-out;
+    }
+
+    .sher:hover {
+      transform: scale(1.05);
+      color: #ec407a;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes colorChange {
+      0% { background-color: #ffebf0; color: #880e4f; }
+      25% { background-color: #ffccf9; color: #ec407a; }
+      50% { background-color: #e1bee7; color: #c2185b; }
+      75% { background-color: #f1c4d6; color: #880e4f; }
+      100% { background-color: #ffebf0; color: #ec407a; }
+    }
+
+    /* Music Playlist */
+    .music-playlist button {
+      padding: 12px 20px;
+      font-size: 1.5em;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      background-color: #ec407a;
+      color: white;
+    }
+
+    .music-playlist button:hover {
+      transform: scale(1.05);
+      background-color: #d81b60;
+    }
+
+    .flower {
+      position: absolute;
+      top: -10%;
+      animation: floatFlower 10s infinite linear;
+      z-index: -1;
+    }
+
+    .flower img {
+      width: 50px;
+      height: 50px;
+      transform: rotate(30deg);
+      opacity: 0.9;
+    }
+
+    .flower1 {
+      animation-delay: 0s;
+      left: 10%;
+    }
+
+    .flower2 {
+      animation-delay: 3s;
+      left: 30%;
+    }
+
+    .flower3 {
+      animation-delay: 6s;
+      left: 50%;
+    }
+
+    .flower4 {
+      animation-delay: 9s;
+      left: 70%;
+    }
+
+    @keyframes floatFlower {
+      0% { transform: translateY(0) rotate(30deg); opacity: 0.9; }
+      50% { transform: translateY(50vh) rotate(180deg); opacity: 1; }
+      100% { transform: translateY(-50vh) rotate(360deg); opacity: 0.9; }
+    }
+
+    .back-btn {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #d81b60;
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Floating Flowers -->
+  <div class="flower flower1">
+    <img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower">
+  </div>
+  <div class="flower flower2">
+    <img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower">
+  </div>
+  <div class="flower flower3">
+    <img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower">
+  </div>
+  <div class="flower flower4">
+    <img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower">
+  </div>
+
+  <!-- Music Controls -->
+  <div class="music-controls">
+    <button class="play-btn" onclick="document.getElementById('bgMusic').play();">🎶 Play</button>
+    <button class="pause-btn" onclick="document.getElementById('bgMusic').pause();">⏸ Stop</button>
+  </div>
+
+  <!-- Playlist Buttons with Emojis -->
+  <div class="music-playlist">
+    <button onclick="playThisSong('https://raw.githubusercontent.com/Mustafashk786/msyy/main/baaton-ko-teri-all-is-well-ringtone-14111.mp3')">🌸 Song 1</button>
+    <button onclick="playThisSong('https://raw.githubusercontent.com/Mustafashk786/msyy/main/tumhihowwwmymp3songcomringtone-1664.mp3')">💖 Song 2</button>
+    <button onclick="playThisSong('https://raw.githubusercontent.com/Mustafashk786/msyy/main/ishq_murshid_ringtone.mp3')">❤️ Song 3</button>
+  </div>
+
+  <h1>Poetry for Fatima</h1>
+  <div class="sher">
+    Teri muskurahat mein hai, ek khudayi ka rang,<br>
+    Teri har baat mein hai, khushiyan jo dil se sang.<br>
+    Khuda se dua hai, tu rahe hamesha khush,<br>
+    Zindagi ki raah pe, ho teri manzil mushkil se kam.<br>
+  </div>
+  <div class="sher">
+    Jahan bhi tu chale, chandni se raah roshan ho,<br>
+    Tere jaisi na koi, tu hai khud se khaas.<br>
+    Aankhon mein jo sapne hain, unmein sirf tu ho,<br>
+    Teri yaadon ki mehfil, sada rahe waisa pyaar.<br>
+  </div>
+
+  <button class="back-btn" onclick="window.location.href='index.html'">Back to Main Page</button>
+
+  <!-- Audio Player -->
+  <audio id="bgMusic" controls style="display:none">
+    <source id="audioSource" src="" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Function to change and play the selected song
+    function playThisSong(songURL) {
+      let audio = document.getElementById("bgMusic");
+      let source = document.getElementById("audioSource");
+
+      source.src = songURL;
+      audio.load();
+      audio.play();
+    }
+  </script>
+</body>
+</html>
