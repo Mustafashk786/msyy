@@ -9,10 +9,10 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(-45deg, #fce4ec, #f8bbd0, #f48fb1, #fce4ec);
+      background: linear-gradient(-45deg, #ffb6c1, #ff9a9e, #f8b0c3, #f7c7d3);
       background-size: 400% 400%;
-      animation: gradientBG 10s ease infinite;
-      color: #4a148c;
+      animation: gradientBG 12s ease infinite;
+      color: #6a1b9a;
       text-align: center;
       padding: 40px 20px;
       min-height: 100vh;
@@ -28,80 +28,81 @@
     }
 
     h1 {
-      font-size: 3.2em;
-      margin-bottom: 10px;
+      font-size: 3.5em;
+      margin-bottom: 20px;
       color: #ff4081;
-      text-shadow: 0 0 15px rgba(255, 64, 129, 0.7);
+      text-shadow: 0 0 25px rgba(255, 64, 129, 0.9);
       animation: glowText 2s infinite alternate;
     }
 
     p {
-      font-size: 1.4em;
-      max-width: 650px;
+      font-size: 1.6em;
+      max-width: 700px;
       margin: 0 auto 20px;
+      line-height: 1.6;
       text-shadow: 0 0 12px rgba(255, 64, 129, 0.6);
     }
 
     .heart {
-      font-size: 5em;
+      font-size: 5.5em;
       color: red;
-      animation: pulse 1.5s infinite;
+      animation: pulse 1.8s infinite;
     }
 
     .profile-img {
       display: block;
       margin: 25px auto;
-      width: 240px;
-      height: 240px;
+      width: 250px;
+      height: 250px;
       object-fit: cover;
       object-position: top;
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
       border: 5px solid #fff;
       transition: transform 0.4s ease-in-out;
     }
 
     .profile-img:hover {
-      transform: scale(1.07);
+      transform: scale(1.1);
     }
 
     .sher {
-      font-size: 1.3em;
+      font-size: 1.4em;
       font-style: italic;
       margin: 30px auto;
       color: #880e4f;
-      max-width: 700px;
+      max-width: 750px;
       line-height: 1.8;
       animation: fadeIn 3s ease-in-out;
     }
 
     .footer {
       margin-top: 50px;
-      font-size: 1em;
+      font-size: 1.1em;
       color: #6a1b9a;
       margin-bottom: 60px;
     }
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      50% { transform: scale(1.2); }
     }
 
     @keyframes glowText {
-      0% { text-shadow: 0 0 12px rgba(255, 64, 129, 0.6); }
-      100% { text-shadow: 0 0 25px rgba(255, 64, 129, 0.9); }
+      0% { text-shadow: 0 0 15px rgba(255, 64, 129, 0.6); }
+      100% { text-shadow: 0 0 30px rgba(255, 64, 129, 0.9); }
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px);}
-      100% { opacity: 1; transform: translateY(0);}
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .floating {
       position: fixed;
       font-size: 2.5em;
       pointer-events: none;
-      opacity: 0.8;
+      opacity: 0.9;
       animation: float 10s infinite linear;
       z-index: 0;
     }
@@ -122,13 +123,13 @@
       bottom: 20px;
       right: 20px;
       display: flex;
-      gap: 10px;
+      gap: 12px;
       z-index: 10;
     }
 
     .music-controls button {
-      padding: 10px 16px;
-      font-size: 1.1em;
+      padding: 12px 18px;
+      font-size: 1.2em;
       border: none;
       border-radius: 30px;
       cursor: pointer;
@@ -149,20 +150,53 @@
     .music-controls button:hover {
       transform: scale(1.05);
     }
+
+    .music-playlist {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .music-playlist button {
+      padding: 12px 18px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 25px;
+      background-color: #f06292;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .music-playlist button:hover {
+      transform: scale(1.05);
+      background-color: #ec407a;
+    }
   </style>
 </head>
 <body>
-
+  <!-- Audio Player -->
   <audio id="bgMusic" loop>
-    <source src="https://raw.githubusercontent.com/Mustafashk786/msyy/main/baaton-ko-teri-all-is-well-ringtone-14111.mp3" type="audio/mp3">
+    <source id="audioSource" src="" type="audio/mp3">
   </audio>
 
+  <!-- Music Controls -->
   <div class="music-controls">
     <button class="play-btn" onclick="document.getElementById('bgMusic').play();">🎶 Play</button>
     <button class="pause-btn" onclick="document.getElementById('bgMusic').pause();">⏸ Stop</button>
   </div>
 
-  <!-- Floating emojis with fixed position and z-index below content -->
+  <!-- Playlist Buttons -->
+  <div class="music-playlist">
+    <button onclick="playThisSong(this)" data-url="https://raw.githubusercontent.com/Mustafashk786/msyy/main/baaton-ko-teri-all-is-well-ringtone-14111.mp3">🌸 Song 1</button>
+    <button onclick="playThisSong(this)" data-url="https://raw.githubusercontent.com/Mustafashk786/msyy/main/tumhihowwwmymp3songcomringtone-1664.mp3">💖 Song 2</button>
+    <button onclick="playThisSong(this)" data-url="https://raw.githubusercontent.com/Mustafashk786/msyy/main/ishq_murshid_ringtone.mp3">❤️ Song 3</button>
+  </div>
+
+  <!-- Floating emojis -->
   <script>
     const emojis = ['❤️','🌸','💖','🌷','💕'];
     for (let i = 0; i < 30; i++) {
@@ -173,6 +207,17 @@
       el.style.animationDuration = 5 + Math.random() * 10 + 's';
       el.style.fontSize = (1 + Math.random() * 2) + 'em';
       document.body.appendChild(el);
+    }
+
+    // Function to change and play the selected song
+    function playThisSong(buttonElement) {
+      let songURL = buttonElement.getAttribute("data-url");
+      let audio = document.getElementById("bgMusic");
+      let source = document.getElementById("audioSource");
+
+      source.src = songURL;
+      audio.load();
+      audio.play();
     }
   </script>
 
@@ -197,6 +242,5 @@
   <div class="footer">
     Made with ❤️ by someone who truly cherishes you.
   </div>
-
 </body>
 </html>
