@@ -8,203 +8,210 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(120deg, #ffebf0, #ffccf9, #e1bee7);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #880e4f;
+      color: #c2185b;
+      background: linear-gradient(120deg, #ffe4f2, #ffd1dc, #ffe0f0, #ffccdd);
+      background-size: 800% 800%;
+      animation: bgGradient 20s ease infinite;
       text-align: center;
-      padding: 40px 20px;
+      overflow-x: hidden;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      overflow-y: auto;
+      padding-top: 50px;
       position: relative;
-      animation: colorChange 5s infinite alternate;
-      background-image: url('https://www.transparenttextures.com/patterns/rainbow-hues.png');
+    }
+
+    @keyframes bgGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
-      font-size: 3.5em;
-      margin-bottom: 20px;
-      color: #ec407a;
-      text-shadow: 0 0 20px rgba(236, 64, 122, 0.8);
-      animation: fadeIn 3s ease-in-out;
+      font-size: 3em;
+      color: #e91e63;
+      text-shadow: 0 0 20px rgba(233, 30, 99, 0.6);
+      animation: typewriter 4s steps(30) 1 normal both, blinkText 1s infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #e91e63;
+      width: 100%;
+      max-width: 90vw;
+      margin: 0 auto 30px;
+    }
+
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blinkText {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #e91e63; }
     }
 
     .sher {
-      font-size: 1.8em;
-      margin: 30px auto;
-      font-style: italic;
+      font-size: 1.5em;
       max-width: 700px;
-      line-height: 1.8;
-      text-align: center;
-      color: #c2185b;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 2s ease-in-out;
-      transition: transform 0.3s ease-in-out, color 2s ease-in-out;
+      margin: 20px auto;
+      padding: 25px;
+      background: rgba(255, 240, 245, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+      color: #ad1457;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 2s ease forwards;
+      opacity: 0;
     }
+
+    .sher:nth-child(1) { animation-delay: 1s; }
+    .sher:nth-child(2) { animation-delay: 2s; }
 
     .sher:hover {
-      transform: scale(1.05);
-      color: #ec407a;
+      transform: scale(1.02);
+      box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
     }
 
-    @keyframes colorChange {
-      0% { background-color: #ffebf0; color: #880e4f; }
-      25% { background-color: #ffccf9; color: #ec407a; }
-      50% { background-color: #e1bee7; color: #c2185b; }
-      75% { background-color: #f1c4d6; color: #880e4f; }
-      100% { background-color: #ffebf0; color: #ec407a; }
+    .music-controls,
+    .music-playlist {
+      margin: 20px auto;
     }
 
-    /* Music Playlist */
-    .music-playlist button {
-      padding: 12px 20px;
-      font-size: 1.5em;
-      margin: 10px;
+    .music-playlist button,
+    .music-controls button,
+    .back-btn {
+      padding: 12px 25px;
+      font-size: 1.2em;
+      margin: 8px;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      background-color: #ec407a;
+      background-color: #f06292;
       color: white;
+      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+      transition: all 0.3s ease;
     }
 
-    .music-playlist button:hover {
+    .music-playlist button:hover,
+    .music-controls button:hover,
+    .back-btn:hover {
       transform: scale(1.05);
-      background-color: #d81b60;
+      background-color: #ec407a;
     }
 
     .flower {
       position: absolute;
       top: -10%;
-      animation: floatFlower 10s infinite linear;
+      animation: floatFlower 12s linear infinite;
       z-index: -1;
     }
 
     .flower img {
       width: 50px;
-      height: 50px;
-      transform: rotate(30deg);
-      opacity: 0.9;
+      opacity: 0.7;
     }
 
-    .flower1 {
-      animation-delay: 0s;
-      left: 10%;
-    }
-
-    .flower2 {
-      animation-delay: 3s;
-      left: 30%;
-    }
-
-    .flower3 {
-      animation-delay: 6s;
-      left: 50%;
-    }
-
-    .flower4 {
-      animation-delay: 9s;
-      left: 70%;
-    }
+    .flower1 { left: 5%; animation-delay: 0s; }
+    .flower2 { left: 25%; animation-delay: 3s; }
+    .flower3 { left: 50%; animation-delay: 6s; }
+    .flower4 { left: 75%; animation-delay: 9s; }
 
     @keyframes floatFlower {
-      0% { transform: translateY(0) rotate(30deg); opacity: 0.9; }
-      50% { transform: translateY(50vh) rotate(180deg); opacity: 1; }
-      100% { transform: translateY(-50vh) rotate(360deg); opacity: 0.9; }
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(120vh) rotate(360deg); }
     }
 
     .back-btn {
-      margin-top: 40px;
-      padding: 15px 30px;
-      font-size: 1.5em;
-      background-color: #ec407a;
-      color: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
+      margin-top: 30px;
     }
 
-    .back-btn:hover {
-      background-color: #d81b60;
-      transform: scale(1.05);
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .sher { font-size: 1.2em; padding: 15px; }
+      .music-playlist button, .back-btn, .music-controls button {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
     }
-
   </style>
 </head>
 <body>
 
   <!-- Floating Flowers -->
-  <div class="flower flower1">
-    <img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower">
-  </div>
-  <div class="flower flower2">
-    <img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower">
-  </div>
-  <div class="flower flower3">
-    <img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower">
-  </div>
-  <div class="flower flower4">
-    <img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower">
+  <div class="flower flower1"><img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower" /></div>
+  <div class="flower flower2"><img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower" /></div>
+  <div class="flower flower3"><img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower" /></div>
+  <div class="flower flower4"><img src="https://www.pngall.com/wp-content/uploads/2016/05/Flower-PNG-Images.png" alt="flower" /></div>
+
+  <!-- Title -->
+  <h1>Poetry for Fatima</h1>
+
+  <!-- Shayari -->
+  <div class="sher">
+    Chup rehta hoon, par dil mein ek raaz hai,<br>
+    Woh har lamha meri duaon ke saath hai.<br>
+    Na chhune ki chahat, na nazdeekiyon ka nasha,<br>
+    Bas door se dekhna bhi mere liye ibadat jaisa.
   </div>
 
-  <!-- Music Controls -->
+  <div class="sher">
+    Flowers bloom when you pass by,<br>
+    A glow like stars lights up the sky.<br>
+    Time slows down when you're near,<br>
+    I lose myself, my world is clear.<br>
+    My heart beats just for you, so true,<br>
+    A dream I wish would one day come true.
+  </div>
+
+  <!-- Music Buttons -->
   <div class="music-controls">
-    <button class="play-btn" onclick="document.getElementById('bgMusic').play();">🎶 Play</button>
-    <button class="pause-btn" onclick="document.getElementById('bgMusic').pause();">⏸ Stop</button>
+    <button onclick="playBG()">🎶 Play</button>
+    <button onclick="pauseBG()">⏸ Stop</button>
   </div>
 
-  <!-- Playlist Buttons with Emojis -->
   <div class="music-playlist">
     <button onclick="playThisSong('https://raw.githubusercontent.com/Mustafashk786/msyy/main/baaton-ko-teri-all-is-well-ringtone-14111.mp3')">🌸 Song 1</button>
     <button onclick="playThisSong('https://raw.githubusercontent.com/Mustafashk786/msyy/main/tumhihowwwmymp3songcomringtone-1664.mp3')">💖 Song 2</button>
     <button onclick="playThisSong('https://raw.githubusercontent.com/Mustafashk786/msyy/main/ishq_murshid_ringtone.mp3')">❤️ Song 3</button>
   </div>
 
-  <h1>Poetry for Fatima</h1>
-  <div class="sher">
-   Chup rehta hoon, par dil mein ek raaz hai,<br>
-Woh har lamha meri duaon ke saath hai.<br>
-Na chhune ki chahat, na nazdeekiyon ka nasha,<br>
-Bas door se dekhna bhi mere liye ibadat jaisa <br>
-  </div>
-  <div class="sher">
-    Jahan bhi tu chale, chandni se raah roshan ho,<br>
-    Tere jaisi na koi, tu hai khud se khaas.<br>
-    Aankhon mein jo sapne hain, unmein sirf tu ho,<br>
-    Teri yaadon ki mehfil, sada rahe waisa pyaar.<br>
-  </div>
+  <button class="back-btn" onclick="window.location.href='index.html'">⬅️ Back to Main Page</button>
 
-  <button class="back-btn" onclick="window.location.href='index.html'">Back to Main Page</button>
-
-  <!-- Audio Player -->
- <audio id="bgMusic" controls style="display:none" loop>
+  <!-- Hidden Music Player -->
+  <audio id="bgMusic" loop>
     <source id="audioSource" src="" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
   <script>
-    // Function to change and play the selected song
     function playThisSong(songURL) {
       let audio = document.getElementById("bgMusic");
       let source = document.getElementById("audioSource");
-
       source.src = songURL;
       audio.load();
+      audio.volume = 0.3;
       audio.play();
     }
+
+    function playBG() {
+      document.getElementById("bgMusic").volume = 0.3;
+      document.getElementById("bgMusic").play();
+    }
+
+    function pauseBG() {
+      document.getElementById("bgMusic").pause();
+    }
   </script>
+
 </body>
 </html>
